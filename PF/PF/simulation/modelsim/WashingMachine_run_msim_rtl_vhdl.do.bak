@@ -1,0 +1,23 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/TempFSM.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/SpinFSM.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/ProgFSM.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuFSM.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/deMux1_4.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg3.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg2.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg1.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/DebounceUnit.vhd}
+vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd}
+

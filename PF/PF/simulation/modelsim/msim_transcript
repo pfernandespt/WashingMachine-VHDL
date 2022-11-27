@@ -1,0 +1,110 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do WashingMachine_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:06:08 on Jun 19,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity WashModule
+# -- Compiling architecture arq of WashModule
+# ** Error: (vcom-11) Could not find work.washfsm.
+# ** Error (suppressible): C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd(32): (vcom-1195) Cannot find expanded name "work.WashFSM".
+# ** Error: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd(32): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.loadtimer.
+# ** Error (suppressible): C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd(46): (vcom-1195) Cannot find expanded name "work.loadTimer".
+# ** Error: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd(46): Unknown expanded name.
+# ** Error: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd(61): VHDL Compiler exiting
+# End time: 19:06:08 on Jun 19,2022, Elapsed time: 0:00:00
+# Errors: 7, Warnings: 0
+# ** Error: C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./WashingMachine_run_msim_rtl_vhdl.do line 8
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd}"
+vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:07:58 on Jun 19,2022
+# vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity loadTimer
+# -- Compiling architecture arq of loadTimer
+# End time: 19:07:58 on Jun 19,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:08:05 on Jun 19,2022
+# vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity WashFSM
+# -- Compiling architecture arq of WashFSM
+# End time: 19:08:05 on Jun 19,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:08:13 on Jun 19,2022
+# vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity WashModule
+# -- Compiling architecture arq of WashModule
+# -- Loading entity WashFSM
+# -- Loading entity loadTimer
+# End time: 19:08:13 on Jun 19,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:08:20 on Jun 19,2022
+# vcom -reportprogress 300 -work work C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity WashModuleTB
+# -- Compiling architecture stimulus of WashModuleTB
+# -- Loading package NUMERIC_STD
+# -- Loading entity WashModule
+# End time: 19:08:20 on Jun 19,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.washmoduletb(stimulus)
+# vsim work.washmoduletb(stimulus) 
+# Start time: 19:09:25 on Jun 19,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.washmoduletb(stimulus)
+# Loading work.washmodule(arq)
+# Loading work.washfsm(arq)
+# Loading work.loadtimer(arq)
+add wave -position end  sim:/washmoduletb/s_reset
+add wave -position end  sim:/washmoduletb/s_clock
+add wave -position end  sim:/washmoduletb/s_wash_on
+add wave -position end  sim:/washmoduletb/s_w_valve
+add wave -position end  sim:/washmoduletb/s_w_pump
+add wave -position end  sim:/washmoduletb/s_rinse
+add wave -position end  sim:/washmoduletb/s_spin
+add wave -position end  sim:/washmoduletb/s_program
+add wave -position end  sim:/washmoduletb/s_sec_out
+run
+# End time: 19:10:13 on Jun 19,2022, Elapsed time: 0:00:48
+# Errors: 0, Warnings: 0

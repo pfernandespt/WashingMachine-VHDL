@@ -1,0 +1,35 @@
+
+State Machine - |top_level|WashModule:WashModule|WashFSM:FSM|pState
+Name pState.FINISHED pState.RW3 pState.SP1 pState.RW2 pState.E2 pState.PW2 pState.RW1 pState.E1 pState.PW1 pState.IDLE 
+pState.IDLE 0 0 0 0 0 0 0 0 0 0 
+pState.PW1 0 0 0 0 0 0 0 0 1 1 
+pState.E1 0 0 0 0 0 0 0 1 0 1 
+pState.RW1 0 0 0 0 0 0 1 0 0 1 
+pState.PW2 0 0 0 0 0 1 0 0 0 1 
+pState.E2 0 0 0 0 1 0 0 0 0 1 
+pState.RW2 0 0 0 1 0 0 0 0 0 1 
+pState.SP1 0 0 1 0 0 0 0 0 0 1 
+pState.RW3 0 1 0 0 0 0 0 0 0 1 
+pState.FINISHED 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |top_level|MenuModule:MenuModule|TempFSM:Temp|pState
+Name pState.T60 pState.T40 pState.COLD 
+pState.COLD 0 0 0 
+pState.T40 0 1 1 
+pState.T60 1 0 1 
+
+State Machine - |top_level|MenuModule:MenuModule|ProgFSM:Prog|pState
+Name pState.P3 pState.P2 pState.P1 
+pState.P1 0 0 0 
+pState.P2 0 1 1 
+pState.P3 1 0 1 
+
+State Machine - |top_level|MenuModule:MenuModule|MenuFSM:Menu|pState
+Name pState.PAUSE pState.WASH pState.DELAY pState.MODE pState.SPIN pState.TEMP pState.PROG 
+pState.PROG 0 0 0 0 0 0 0 
+pState.TEMP 0 0 0 0 0 1 1 
+pState.SPIN 0 0 0 0 1 0 1 
+pState.MODE 0 0 0 1 0 0 1 
+pState.DELAY 0 0 1 0 0 0 1 
+pState.WASH 0 1 0 0 0 0 1 
+pState.PAUSE 1 0 0 0 0 0 1 

@@ -1,0 +1,736 @@
+Analysis & Synthesis report for WashingMachine
+Sun Jun 19 19:17:32 2022
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |top_level|WashModule:WashModule|WashFSM:FSM|pState
+  9. State Machine - |top_level|MenuModule:MenuModule|TempFSM:Temp|pState
+ 10. State Machine - |top_level|MenuModule:MenuModule|ProgFSM:Prog|pState
+ 11. State Machine - |top_level|MenuModule:MenuModule|MenuFSM:Menu|pState
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: DebounceUnit:Debouncer0
+ 15. Parameter Settings for User Entity Instance: DebounceUnit:Debouncer1
+ 16. Parameter Settings for User Entity Instance: DebounceUnit:Debouncer2
+ 17. Parameter Settings for User Entity Instance: MenuModule:MenuModule
+ 18. Parameter Settings for User Entity Instance: MenuModule:MenuModule|loadTimer:Timer
+ 19. Parameter Settings for User Entity Instance: WashModule:WashModule
+ 20. Parameter Settings for User Entity Instance: WashModule:WashModule|loadTimer:TIMER
+ 21. Parameter Settings for Inferred Entity Instance: Bin7SegBCD:Dec1|lpm_divide:Mod0
+ 22. Parameter Settings for Inferred Entity Instance: Bin7SegBCD:Dec1|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: Bin7SegBCD:Dec1|lpm_divide:Mod1
+ 24. Port Connectivity Checks: "WashModule:WashModule|loadTimer:TIMER"
+ 25. Port Connectivity Checks: "WashModule:WashModule"
+ 26. Port Connectivity Checks: "MenuModule:MenuModule|deMux1_4:Demux"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Jun 19 19:17:32 2022       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                      ; WashingMachine                              ;
+; Top-level Entity Name              ; top_level                                   ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 677                                         ;
+;     Total combinational functions  ; 673                                         ;
+;     Dedicated logic registers      ; 234                                         ;
+; Total registers                    ; 234                                         ;
+; Total pins                         ; 75                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; top_level          ; WashingMachine     ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; ../WashModule.vhd                ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd                 ;         ;
+; ../WashFSM.vhd                   ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd                    ;         ;
+; ../top_level.vhd                 ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd                  ;         ;
+; ../TempFSM.vhd                   ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/TempFSM.vhd                    ;         ;
+; ../SpinFSM.vhd                   ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/SpinFSM.vhd                    ;         ;
+; ../ProgFSM.vhd                   ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/ProgFSM.vhd                    ;         ;
+; ../MenuModule.vhd                ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd                 ;         ;
+; ../MenuFSM.vhd                   ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuFSM.vhd                    ;         ;
+; ../loadTimer.vhd                 ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd                  ;         ;
+; ../deMux1_4.vhd                  ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/deMux1_4.vhd                   ;         ;
+; ../Dec7Seg3.vhd                  ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg3.vhd                   ;         ;
+; ../Dec7Seg2.vhd                  ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg2.vhd                   ;         ;
+; ../Dec7Seg1.vhd                  ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg1.vhd                   ;         ;
+; ../DebounceUnit.vhd              ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/DebounceUnit.vhd               ;         ;
+; ../Bin7SegBCD.vhd                ; yes             ; User VHDL File               ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc      ;         ;
+; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/lpm_divide_q9m.tdf       ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/sign_div_unsign_fkh.tdf  ;         ;
+; db/alt_u_div_i4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/alt_u_div_i4f.tdf        ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/add_sub_7pc.tdf          ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/add_sub_8pc.tdf          ;         ;
+; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/lpm_divide_jhm.tdf       ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/sign_div_unsign_bkh.tdf  ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/alt_u_div_a4f.tdf        ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 677            ;
+;                                             ;                ;
+; Total combinational functions               ; 673            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 276            ;
+;     -- 3 input functions                    ; 82             ;
+;     -- <=2 input functions                  ; 315            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 453            ;
+;     -- arithmetic mode                      ; 220            ;
+;                                             ;                ;
+; Total registers                             ; 234            ;
+;     -- Dedicated logic registers            ; 234            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 75             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 234            ;
+; Total fan-out                               ; 2752           ;
+; Average fan-out                             ; 2.60           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                    ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                        ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |top_level                                ; 673 (1)             ; 234 (1)                   ; 0           ; 0            ; 0       ; 0         ; 75   ; 0            ; |top_level                                                                                                                 ; top_level           ; work         ;
+;    |Bin7SegBCD:Dec1|                      ; 107 (26)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1                                                                                                 ; Bin7SegBCD          ; work         ;
+;       |lpm_divide:Div0|                   ; 31 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_jhm:auto_generated|  ; 31 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm      ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 31 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
+;                |alt_u_div_a4f:divider|    ; 31 (31)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 50 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_q9m:auto_generated|  ; 50 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m      ; work         ;
+;             |sign_div_unsign_fkh:divider| ; 50 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_i4f:divider|    ; 50 (50)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Bin7SegBCD:Dec1|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f       ; work         ;
+;    |DebounceUnit:Debouncer0|              ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|DebounceUnit:Debouncer0                                                                                         ; DebounceUnit        ; work         ;
+;    |DebounceUnit:Debouncer1|              ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|DebounceUnit:Debouncer1                                                                                         ; DebounceUnit        ; work         ;
+;    |DebounceUnit:Debouncer2|              ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|DebounceUnit:Debouncer2                                                                                         ; DebounceUnit        ; work         ;
+;    |Dec7Seg1:Dec2|                        ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Dec7Seg1:Dec2                                                                                                   ; Dec7Seg1            ; work         ;
+;    |Dec7Seg2:Dec3|                        ; 29 (29)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Dec7Seg2:Dec3                                                                                                   ; Dec7Seg2            ; work         ;
+;    |Dec7Seg3:Dec4|                        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|Dec7Seg3:Dec4                                                                                                   ; Dec7Seg3            ; work         ;
+;    |MenuModule:MenuModule|                ; 167 (1)             ; 80 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule                                                                                           ; MenuModule          ; work         ;
+;       |MenuFSM:Menu|                      ; 26 (26)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule|MenuFSM:Menu                                                                              ; MenuFSM             ; work         ;
+;       |ProgFSM:Prog|                      ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule|ProgFSM:Prog                                                                              ; ProgFSM             ; work         ;
+;       |SpinFSM:Spin|                      ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule|SpinFSM:Spin                                                                              ; SpinFSM             ; work         ;
+;       |TempFSM:Temp|                      ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule|TempFSM:Temp                                                                              ; TempFSM             ; work         ;
+;       |deMux1_4:Demux|                    ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule|deMux1_4:Demux                                                                            ; deMux1_4            ; work         ;
+;       |loadTimer:Timer|                   ; 131 (131)           ; 65 (65)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|MenuModule:MenuModule|loadTimer:Timer                                                                           ; loadTimer           ; work         ;
+;    |WashModule:WashModule|                ; 152 (0)             ; 75 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|WashModule:WashModule                                                                                           ; WashModule          ; work         ;
+;       |WashFSM:FSM|                       ; 22 (22)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|WashModule:WashModule|WashFSM:FSM                                                                               ; WashFSM             ; work         ;
+;       |loadTimer:TIMER|                   ; 130 (130)           ; 65 (65)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|WashModule:WashModule|loadTimer:TIMER                                                                           ; loadTimer           ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|WashModule:WashModule|WashFSM:FSM|pState                                                                                   ;
++-----------------+-----------------+------------+------------+------------+-----------+------------+------------+-----------+------------+-------------+
+; Name            ; pState.FINISHED ; pState.RW3 ; pState.SP1 ; pState.RW2 ; pState.E2 ; pState.PW2 ; pState.RW1 ; pState.E1 ; pState.PW1 ; pState.IDLE ;
++-----------------+-----------------+------------+------------+------------+-----------+------------+------------+-----------+------------+-------------+
+; pState.IDLE     ; 0               ; 0          ; 0          ; 0          ; 0         ; 0          ; 0          ; 0         ; 0          ; 0           ;
+; pState.PW1      ; 0               ; 0          ; 0          ; 0          ; 0         ; 0          ; 0          ; 0         ; 1          ; 1           ;
+; pState.E1       ; 0               ; 0          ; 0          ; 0          ; 0         ; 0          ; 0          ; 1         ; 0          ; 1           ;
+; pState.RW1      ; 0               ; 0          ; 0          ; 0          ; 0         ; 0          ; 1          ; 0         ; 0          ; 1           ;
+; pState.PW2      ; 0               ; 0          ; 0          ; 0          ; 0         ; 1          ; 0          ; 0         ; 0          ; 1           ;
+; pState.E2       ; 0               ; 0          ; 0          ; 0          ; 1         ; 0          ; 0          ; 0         ; 0          ; 1           ;
+; pState.RW2      ; 0               ; 0          ; 0          ; 1          ; 0         ; 0          ; 0          ; 0         ; 0          ; 1           ;
+; pState.SP1      ; 0               ; 0          ; 1          ; 0          ; 0         ; 0          ; 0          ; 0         ; 0          ; 1           ;
+; pState.RW3      ; 0               ; 1          ; 0          ; 0          ; 0         ; 0          ; 0          ; 0         ; 0          ; 1           ;
+; pState.FINISHED ; 1               ; 0          ; 0          ; 0          ; 0         ; 0          ; 0          ; 0         ; 0          ; 1           ;
++-----------------+-----------------+------------+------------+------------+-----------+------------+------------+-----------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------+
+; State Machine - |top_level|MenuModule:MenuModule|TempFSM:Temp|pState ;
++-------------+------------+------------+------------------------------+
+; Name        ; pState.T60 ; pState.T40 ; pState.COLD                  ;
++-------------+------------+------------+------------------------------+
+; pState.COLD ; 0          ; 0          ; 0                            ;
+; pState.T40  ; 0          ; 1          ; 1                            ;
+; pState.T60  ; 1          ; 0          ; 1                            ;
++-------------+------------+------------+------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------+
+; State Machine - |top_level|MenuModule:MenuModule|ProgFSM:Prog|pState ;
++-----------+-----------+-----------+----------------------------------+
+; Name      ; pState.P3 ; pState.P2 ; pState.P1                        ;
++-----------+-----------+-----------+----------------------------------+
+; pState.P1 ; 0         ; 0         ; 0                                ;
+; pState.P2 ; 0         ; 1         ; 1                                ;
+; pState.P3 ; 1         ; 0         ; 1                                ;
++-----------+-----------+-----------+----------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|MenuModule:MenuModule|MenuFSM:Menu|pState                                             ;
++--------------+--------------+-------------+--------------+-------------+-------------+-------------+-------------+
+; Name         ; pState.PAUSE ; pState.WASH ; pState.DELAY ; pState.MODE ; pState.SPIN ; pState.TEMP ; pState.PROG ;
++--------------+--------------+-------------+--------------+-------------+-------------+-------------+-------------+
+; pState.PROG  ; 0            ; 0           ; 0            ; 0           ; 0           ; 0           ; 0           ;
+; pState.TEMP  ; 0            ; 0           ; 0            ; 0           ; 0           ; 1           ; 1           ;
+; pState.SPIN  ; 0            ; 0           ; 0            ; 0           ; 1           ; 0           ; 1           ;
+; pState.MODE  ; 0            ; 0           ; 0            ; 1           ; 0           ; 0           ; 1           ;
+; pState.DELAY ; 0            ; 0           ; 1            ; 0           ; 0           ; 0           ; 1           ;
+; pState.WASH  ; 0            ; 1           ; 0            ; 0           ; 0           ; 0           ; 1           ;
+; pState.PAUSE ; 1            ; 0           ; 0            ; 0           ; 0           ; 0           ; 1           ;
++--------------+--------------+-------------+--------------+-------------+-------------+-------------+-------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 234   ;
+; Number of registers using Synchronous Clear  ; 70    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 126   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |top_level|MenuModule:MenuModule|loadTimer:Timer|seconds[15] ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |top_level|WashModule:WashModule|loadTimer:TIMER|seconds[24] ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |top_level|MenuModule:MenuModule|loadTimer:Timer|periods[2]  ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MenuModule:MenuModule|loadTimer:Timer|seconds[3]  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |top_level|WashModule:WashModule|loadTimer:TIMER|periods[29] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|WashModule:WashModule|loadTimer:TIMER|seconds[2]  ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |top_level|DebounceUnit:Debouncer0|s_debounceCnt[17]         ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |top_level|DebounceUnit:Debouncer2|s_debounceCnt[0]          ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |top_level|DebounceUnit:Debouncer1|s_debounceCnt[0]          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |top_level|Dec7Seg1:Dec2|h0[5]                               ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |top_level|Dec7Seg1:Dec2|h1[6]                               ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top_level|Dec7Seg2:Dec3|h1[4]                               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top_level|Bin7SegBCD:Dec1|h0[3]                             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top_level|Bin7SegBCD:Dec1|h1[3]                             ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|Bin7SegBCD:Dec1|h0[4]                             ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|Bin7SegBCD:Dec1|h1[6]                             ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |top_level|MenuModule:MenuModule|MenuFSM:Menu|Selector5      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:Debouncer0 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                              ;
+; msecmininwidth ; 100   ; Signed Integer                              ;
+; inpolarity     ; '0'   ; Enumerated                                  ;
+; outpolarity    ; '1'   ; Enumerated                                  ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:Debouncer1 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                              ;
+; msecmininwidth ; 100   ; Signed Integer                              ;
+; inpolarity     ; '0'   ; Enumerated                                  ;
+; outpolarity    ; '1'   ; Enumerated                                  ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:Debouncer2 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                              ;
+; msecmininwidth ; 100   ; Signed Integer                              ;
+; inpolarity     ; '0'   ; Enumerated                                  ;
+; outpolarity    ; '1'   ; Enumerated                                  ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MenuModule:MenuModule ;
++----------------+----------+----------------------------------------+
+; Parameter Name ; Value    ; Type                                   ;
++----------------+----------+----------------------------------------+
+; periods_second ; 50000000 ; Signed Integer                         ;
++----------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MenuModule:MenuModule|loadTimer:Timer ;
++----------------+----------+--------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                   ;
++----------------+----------+--------------------------------------------------------+
+; periods_second ; 50000000 ; Signed Integer                                         ;
+; cap_log2       ; 6        ; Signed Integer                                         ;
++----------------+----------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WashModule:WashModule ;
++----------------+----------+----------------------------------------+
+; Parameter Name ; Value    ; Type                                   ;
++----------------+----------+----------------------------------------+
+; periods_second ; 50000000 ; Signed Integer                         ;
++----------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: WashModule:WashModule|loadTimer:TIMER ;
++----------------+----------+--------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                   ;
++----------------+----------+--------------------------------------------------------+
+; periods_second ; 50000000 ; Signed Integer                                         ;
+; cap_log2       ; 3        ; Signed Integer                                         ;
++----------------+----------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Bin7SegBCD:Dec1|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                ;
+; LPM_WIDTHD             ; 8              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Bin7SegBCD:Dec1|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                ;
+; LPM_WIDTHD             ; 4              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Bin7SegBCD:Dec1|lpm_divide:Mod1 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                ;
+; LPM_WIDTHD             ; 8              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "WashModule:WashModule|loadTimer:TIMER" ;
++----------+-------+----------+-------------------------------------+
+; Port     ; Type  ; Severity ; Details                             ;
++----------+-------+----------+-------------------------------------+
+; force_ld ; Input ; Info     ; Stuck at GND                        ;
++----------+-------+----------+-------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "WashModule:WashModule"                                                                 ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; sec_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MenuModule:MenuModule|deMux1_4:Demux"                                                  ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; dout[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 75                          ;
+; cycloneiii_ff         ; 234                         ;
+;     ENA               ; 62                          ;
+;     ENA SCLR          ; 64                          ;
+;     SCLR              ; 6                           ;
+;     plain             ; 102                         ;
+; cycloneiii_lcell_comb ; 689                         ;
+;     arith             ; 220                         ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 198                         ;
+;         3 data inputs ; 19                          ;
+;     normal            ; 469                         ;
+;         0 data inputs ; 8                           ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 98                          ;
+;         3 data inputs ; 63                          ;
+;         4 data inputs ; 276                         ;
+;                       ;                             ;
+; Max LUT depth         ; 12.80                       ;
+; Average LUT depth     ; 5.49                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:08     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Sun Jun 19 19:16:34 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off WashingMachine -c WashingMachine
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/washmoduletb.vhd
+    Info (12022): Found design unit 1: WashModuleTB-stimulus File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd Line: 10
+    Info (12023): Found entity 1: WashModuleTB File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/washmodule.vhd
+    Info (12022): Found design unit 1: WashModule-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd Line: 26
+    Info (12023): Found entity 1: WashModule File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/washfsm.vhd
+    Info (12022): Found design unit 1: WashFSM-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd Line: 22
+    Info (12023): Found entity 1: WashFSM File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/top_level.vhd
+    Info (12022): Found design unit 1: top_level-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 23
+    Info (12023): Found entity 1: top_level File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/tempfsm.vhd
+    Info (12022): Found design unit 1: TempFSM-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/TempFSM.vhd Line: 15
+    Info (12023): Found entity 1: TempFSM File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/TempFSM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/spinfsm.vhd
+    Info (12022): Found design unit 1: SpinFSM-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/SpinFSM.vhd Line: 15
+    Info (12023): Found entity 1: SpinFSM File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/SpinFSM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/progfsm.vhd
+    Info (12022): Found design unit 1: ProgFSM-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/ProgFSM.vhd Line: 15
+    Info (12023): Found entity 1: ProgFSM File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/ProgFSM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/menumodule.vhd
+    Info (12022): Found design unit 1: MenuModule-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 29
+    Info (12023): Found entity 1: MenuModule File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/menufsm.vhd
+    Info (12022): Found design unit 1: MenuFSM-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuFSM.vhd Line: 28
+    Info (12023): Found entity 1: MenuFSM File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuFSM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/loadtimer.vhd
+    Info (12022): Found design unit 1: loadTimer-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd Line: 23
+    Info (12023): Found entity 1: loadTimer File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/demux1_4.vhd
+    Info (12022): Found design unit 1: deMux1_4-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/deMux1_4.vhd Line: 12
+    Info (12023): Found entity 1: deMux1_4 File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/deMux1_4.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/dec7seg3.vhd
+    Info (12022): Found design unit 1: Dec7Seg3-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg3.vhd Line: 13
+    Info (12023): Found entity 1: Dec7Seg3 File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg3.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/dec7seg2.vhd
+    Info (12022): Found design unit 1: Dec7Seg2-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg2.vhd Line: 13
+    Info (12023): Found entity 1: Dec7Seg2 File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/dec7seg1.vhd
+    Info (12022): Found design unit 1: Dec7Seg1-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg1.vhd Line: 13
+    Info (12023): Found entity 1: Dec7Seg1 File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Dec7Seg1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/debounceunit.vhd
+    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/DebounceUnit.vhd Line: 19
+    Info (12023): Found entity 1: DebounceUnit File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/DebounceUnit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/paulo/dropbox/projetolsd/finais/v2/bin7segbcd.vhd
+    Info (12022): Found design unit 1: Bin7SegBCD-arq File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 14
+    Info (12023): Found entity 1: Bin7SegBCD File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 5
+Info (12127): Elaborating entity "top_level" for the top level hierarchy
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:Debouncer0" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 33
+Info (12129): Elaborating entity "MenuModule" using architecture "A:arq" for hierarchy "MenuModule:MenuModule" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 79
+Info (12129): Elaborating entity "MenuFSM" using architecture "A:arq" for hierarchy "MenuModule:MenuModule|MenuFSM:Menu" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 45
+Info (12129): Elaborating entity "loadTimer" using architecture "A:arq" for hierarchy "MenuModule:MenuModule|loadTimer:Timer" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 67
+Info (12129): Elaborating entity "ProgFSM" using architecture "A:arq" for hierarchy "MenuModule:MenuModule|ProgFSM:Prog" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 82
+Info (12129): Elaborating entity "TempFSM" using architecture "A:arq" for hierarchy "MenuModule:MenuModule|TempFSM:Temp" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 90
+Info (12129): Elaborating entity "SpinFSM" using architecture "A:arq" for hierarchy "MenuModule:MenuModule|SpinFSM:Spin" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 97
+Info (12129): Elaborating entity "deMux1_4" using architecture "A:arq" for hierarchy "MenuModule:MenuModule|deMux1_4:Demux" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/MenuModule.vhd Line: 104
+Info (12129): Elaborating entity "WashModule" using architecture "A:arq" for hierarchy "WashModule:WashModule" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 100
+Info (12129): Elaborating entity "WashFSM" using architecture "A:arq" for hierarchy "WashModule:WashModule|WashFSM:FSM" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd Line: 32
+Info (12129): Elaborating entity "loadTimer" using architecture "A:arq" for hierarchy "WashModule:WashModule|loadTimer:TIMER" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd Line: 46
+Info (12129): Elaborating entity "Bin7SegBCD" using architecture "A:arq" for hierarchy "Bin7SegBCD:Dec1" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 116
+Info (12129): Elaborating entity "Dec7Seg1" using architecture "A:arq" for hierarchy "Dec7Seg1:Dec2" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 123
+Info (12129): Elaborating entity "Dec7Seg2" using architecture "A:arq" for hierarchy "Dec7Seg2:Dec3" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 130
+Info (12129): Elaborating entity "Dec7Seg3" using architecture "A:arq" for hierarchy "Dec7Seg3:Dec4" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 137
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Bin7SegBCD:Dec1|Mod0" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 23
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Bin7SegBCD:Dec1|Div0" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Bin7SegBCD:Dec1|Mod1" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 24
+Info (12130): Elaborated megafunction instantiation "Bin7SegBCD:Dec1|lpm_divide:Mod0" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 23
+Info (12133): Instantiated megafunction "Bin7SegBCD:Dec1|lpm_divide:Mod0" with the following parameter: File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 23
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_q9m.tdf
+    Info (12023): Found entity 1: lpm_divide_q9m File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/lpm_divide_q9m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/sign_div_unsign_fkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i4f.tdf
+    Info (12023): Found entity 1: alt_u_div_i4f File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/alt_u_div_i4f.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/add_sub_7pc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/add_sub_8pc.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "Bin7SegBCD:Dec1|lpm_divide:Div0" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 24
+Info (12133): Instantiated megafunction "Bin7SegBCD:Dec1|lpm_divide:Div0" with the following parameter: File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jhm.tdf
+    Info (12023): Found entity 1: lpm_divide_jhm File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/lpm_divide_jhm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/sign_div_unsign_bkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/db/alt_u_div_a4f.tdf Line: 26
+Info (12130): Elaborated megafunction instantiation "Bin7SegBCD:Dec1|lpm_divide:Mod1" File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 24
+Info (12133): Instantiated megafunction "Bin7SegBCD:Dec1|lpm_divide:Mod1" with the following parameter: File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/Bin7SegBCD.vhd Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 11
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 11
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 11
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 11
+    Warning (13410): Pin "HEX6[5]" is stuck at VCC File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 18
+    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+    Warning (13410): Pin "HEX7[2]" is stuck at VCC File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+    Warning (13410): Pin "HEX7[3]" is stuck at VCC File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+    Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/top_level.vhd Line: 19
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 752 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 70 output pins
+    Info (21061): Implemented 677 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4814 megabytes
+    Info: Processing ended: Sun Jun 19 19:17:32 2022
+    Info: Elapsed time: 00:00:58
+    Info: Total CPU time (on all processors): 00:01:17
+
+

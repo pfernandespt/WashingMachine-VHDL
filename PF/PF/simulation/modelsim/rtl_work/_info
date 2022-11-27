@@ -1,0 +1,176 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/PF/simulation/modelsim
+Eloadtimer
+Z1 w1655659895
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd
+Z6 FC:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd
+l0
+L7
+Vz2mTVDUC=_l>0TRACo3363
+!s100 eQacWRmI5PfgBeZgAUeam3
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1655662078
+!i10b 1
+Z9 !s108 1655662078.000000
+Z10 !s90 -reportprogress|300|-work|work|C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd|
+Z11 !s107 C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/loadTimer.vhd|
+!i113 1
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
+Aarq
+R2
+R3
+R4
+Z14 DEx4 work 9 loadtimer 0 22 z2mTVDUC=_l>0TRACo3363
+l27
+L23
+VP?n;NTUA0J7jONQBdKC;W3
+!s100 2>6V3z2YS7i5<fBElXoL;1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ewashfsm
+Z15 w1655660653
+R2
+R3
+R4
+R0
+Z16 8C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd
+Z17 FC:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd
+l0
+L6
+VX9:<Y[gkC:PT00g`TEHo:2
+!s100 M^]7af1IAC=8k:;DMT1=P0
+R7
+32
+Z18 !s110 1655662085
+!i10b 1
+Z19 !s108 1655662085.000000
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd|
+Z21 !s107 C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashFSM.vhd|
+!i113 1
+R12
+R13
+Aarq
+R2
+R3
+R4
+Z22 DEx4 work 7 washfsm 0 22 X9:<Y[gkC:PT00g`TEHo:2
+l31
+L22
+V8R6<;hoS^CClOj0dMZA4i0
+!s100 n6oMN`RMI2cG1bK@_LNHG1
+R7
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R12
+R13
+Ewashmodule
+Z23 w1655660874
+R2
+R3
+R4
+R0
+Z24 8C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd
+Z25 FC:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd
+l0
+L6
+V]M`9Ul2K4GW>3fk`;1d<m1
+!s100 ^J5CC7k4MR64LF3Ag=zVj0
+R7
+32
+Z26 !s110 1655662093
+!i10b 1
+Z27 !s108 1655662093.000000
+Z28 !s90 -reportprogress|300|-work|work|C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd|
+Z29 !s107 C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModule.vhd|
+!i113 1
+R12
+R13
+Aarq
+R14
+R22
+R2
+R3
+R4
+Z30 DEx4 work 10 washmodule 0 22 ]M`9Ul2K4GW>3fk`;1d<m1
+l31
+L26
+VnTAZjJi^jo0eEo`VO2TLV2
+!s100 Sb3b@=Qjm_7R?@FV6Lok81
+R7
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 1
+R12
+R13
+Ewashmoduletb
+Z31 w1655571278
+R3
+R4
+R0
+Z32 8C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd
+Z33 FC:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd
+l0
+L6
+VZFH`k5340]EJX8PCK;4P@0
+!s100 M?aOYb6OO@GGkH09:oLMz0
+R7
+32
+Z34 !s110 1655662100
+!i10b 1
+Z35 !s108 1655662100.000000
+Z36 !s90 -reportprogress|300|-work|work|C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd|
+Z37 !s107 C:/Users/paulo/Dropbox/ProjetoLSD/Finais/V2/WashModuleTB.vhd|
+!i113 1
+R12
+R13
+Astimulus
+R2
+R30
+R3
+R4
+DEx4 work 12 washmoduletb 0 22 ZFH`k5340]EJX8PCK;4P@0
+l16
+L10
+VJXVii?WJWXnT8mT@`B1Nk1
+!s100 OE4QM1LXIFKhcN6h6<MNz0
+R7
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R12
+R13

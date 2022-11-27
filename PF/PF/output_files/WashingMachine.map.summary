@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Jun 19 19:17:32 2022
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : WashingMachine
+Top-level Entity Name : top_level
+Family : Cyclone IV E
+Total logic elements : 677
+    Total combinational functions : 673
+    Dedicated logic registers : 234
+Total registers : 234
+Total pins : 75
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
